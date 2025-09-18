@@ -1,0 +1,56 @@
+// C#
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
+// Classe que representa a Tarefa
+public class Tarefa
+{
+    public int Id { get; set; }
+    public string Titulo { get; set; }
+    public string Descricao { get; set; }
+    public DateTime Data { get; set; }
+    public string Status { get; set; }
+}
+
+// Contexto do banco de dados
+public class TarefasDbContext : DbContext
+{
+    public DbSet<Tarefa> Tarefas { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder options)
+        => options.UseSqlServer("SUA_STRING_DE_CONEXAO");
+}
+
+// Controller da Web API
+[Route("api/[controller]")]
+[ApiController]
+public class TarefaController : ControllerBase
+{
+    private readonly TarefasDbContext _context;
+
+    public TarefaController(TarefasDbContext context)
+    {
+        _context = context;
+    }
+
+    [HttpGet("{id}")]
+    public IActionResult GetById(int id)
+    {
+        var tarefa = _context.Tarefas.Find(id);
+        if (tarefa == null)
+        {
+            return NotFound();
+        }
+        return Ok(tarefa);
+    }
+
+    // Implemente os outros métodos conforme os endpoints especificados
+}
+
+// Para gerar migrations:
+// dotnet ef migrations add NomeDaMigration
+// dotnet ef database update
