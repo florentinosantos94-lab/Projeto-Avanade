@@ -1,0 +1,32 @@
+# Desafio Técnico - Microserviços de Gerenciamento de Estoque e Vendas
+
+## Resumo do Desafio
+Desenvolver uma aplicação de gerenciamento de estoque de produtos e vendas em uma arquitetura de microserviços para uma plataforma de e-commerce, utilizando tecnologias como .NET Core, C#, Entity Framework, RESTful API, RabbitMQ e JWT.
+
+## Passos Realizados
+1. **Criação dos Microserviços:**
+   - Implementação do Microserviço de Gestão de Estoque para cadastrar produtos, controlar estoque e fornecer informações sobre a disponibilidade.
+   - Desenvolvimento do Microserviço de Gestão de Vendas para gerenciar pedidos e interagir com o serviço de estoque para verificar a disponibilidade de produtos.
+
+2. **Autenticação e Segurança:**
+   - Utilização de JWT para autenticação, garantindo que apenas usuários autenticados possam acessar as funcionalidades de vendas e estoque.
+
+3. **Implementação do API Gateway:**
+   - Configuração de um API Gateway para rotear as requisições para os microserviços adequados, centralizando o acesso à API.
+
+4. **Persistência de Dados:**
+   - Utilização do Entity Framework com banco de dados relacional (SQL Server) para armazenar informações dos produtos, pedidos e estoque.
+
+5. **Funcionalidades Desenvolvidas:**
+   - Microserviço de Estoque: Cadastro, consulta de produtos e atualização de estoque após vendas.
+   - Microserviço de Vendas: Criação de pedidos, consulta de pedidos e notificação de vendas.
+
+6. **Conformidade com Requisitos Técnicos:**
+   - Adoção de boas práticas de design de API, utilização de RESTful APIs, tratamento de exceções e validações adequadas.
+
+## Próximos Passos Sugeridos
+- Implementar testes unitários para as funcionalidades principais dos microserviços.
+- Adicionar monitoramento básico de logs para rastreamento de falhas e transações.
+- Garantir a escalabilidade do sistema para suportar possíveis adições de microserviços no futuro.
+
+Este resumo reflete o progresso até o momento no desenvolvimento da aplicação de gerenciamento de estoque e vendas em uma arquitetura de microserviços. Continuar com os próximos passos sugeridos ajudará a aprimorar ainda mais a solução. Se precisar de mais orientações ou detalhes adicionais, estou à disposição para ajudar.
